@@ -1,0 +1,170 @@
+/*
+  Ria Dhankhar Portfolio — Stylesheet
+  =====================================
+  NOTE: The site currently uses inline styles in index.html.
+  This file is a reference/extracted copy for maintainability.
+  To use this externally, remove the <style> block from index.html
+  and add: <link rel="stylesheet" href="assets/css/style.css">
+*/
+
+/* ─── RESET & ROOT ─────────────────────────────────────── */
+*,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Background */
+  --bg:    #04080f;
+  --bg2:   #06101e;
+  --bg3:   #081525;
+
+  /* Accent colours */
+  --cyan:   #00e5ff;
+  --blue:   #2979ff;
+  --teal:   #00bfa5;
+  --accent: #ff6b6b;
+
+  /* Text */
+  --text:  #eef2ff;
+  --text2: #8fa6c8;
+  --text3: #3d5478;
+
+  /* Cards & borders */
+  --card:    #081828;
+  --card2:   #0a1e30;
+  --border:  rgba(0, 229, 255, 0.10);
+  --border2: rgba(0, 229, 255, 0.28);
+
+  /* Gradients */
+  --grad:  linear-gradient(135deg, #00e5ff, #2979ff);
+  --grad2: linear-gradient(135deg, #00bfa5, #00e5ff);
+
+  /* Typography */
+  --font:    'Outfit', sans-serif;
+  --mono:    'Fira Code', monospace;
+  --display: 'Playfair Display', serif;
+
+  /* Misc */
+  --r:     14px;
+  --r2:    22px;
+  --nav-h: 68px;
+}
+
+/* CUSTOM CURSOR */
+*, *::before, *::after { cursor: none !important; }
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #00e5ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid rgba(0, 229, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s, height 0.25s, border-color 0.25s, transform 0.08s;
+}
+
+.cursor-dot.hovered   { width: 6px; height: 6px; background: #2979ff; }
+.cursor-ring.hovered  { width: 40px; height: 40px; border-color: rgba(41,121,255,0.7); }
+.cursor-dot.clicking  { width: 4px; height: 4px; }
+.cursor-ring.clicking { transform: translate(-50%, -50%) scale(0.85); }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  overflow-x: hidden;
+}
+
+/* ─── UTILITIES ─────────────────────────────────────────── */
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+  width: 100%;
+}
+
+/* ─── ANIMATIONS ────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-25px) scale(1.04); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.5); }
+  60%       { opacity: 0.7; box-shadow: 0 0 0 7px rgba(0, 230, 118, 0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.reveal       { opacity: 0; transform: translateY(35px);  transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left  { opacity: 0; transform: translateX(-35px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right { opacity: 0; transform: translateX(35px);  transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in, .reveal-left.in, .reveal-right.in { opacity: 1; transform: translate(0); }
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .about-grid    { grid-template-columns: 1fr; }
+  .contact-grid  { grid-template-columns: 1fr; }
+  .footer-grid   { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger            { display: flex; }
+  .footer-grid          { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-btns  { flex-direction: column; align-items: flex-start; }
+  .hero-stats { gap: 1.2rem; }
+}

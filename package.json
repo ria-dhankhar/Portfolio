@@ -1,0 +1,37 @@
+{
+  "name": "ria-dhankhar-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Ria Dhankhar — ECE Student at IGDTUW. Showcasing projects in Embedded Systems, VLSI, and AI/ML.",
+  "author": {
+    "name": "Ria Dhankhar",
+    "email": "writetoria30@gmail.com",
+    "url": "https://your-live-link.vercel.app"
+  },
+  "license": "MIT",
+  "keywords": [
+    "portfolio",
+    "ece",
+    "embedded-systems",
+    "vlsi",
+    "ai-ml",
+    "igdtuw",
+    "personal-website"
+  ],
+  "homepage": "https://your-live-link.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ria-portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/ria-portfolio/issues"
+  },
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000 --open=index.html",
+    "lint": "npx htmlhint index.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.0"
+  }
+}
