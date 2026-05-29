@@ -109,12 +109,8 @@ Colors and fonts are controlled via CSS custom properties at the top of the `<st
 **Ria Dhankhar**  
 ECE @ IGDTUW · CGPA 8.65  
 📧 writetoria30@gmail.com  
-📞 +91-9958560062  
 🔗 [LinkedIn](https://linkedin.com) · [GitHub](https://github.com)
 
 ---
 
-## 📄 License
-
-This project is open source under the [MIT License](LICENSE).  
 Feel free to fork and adapt for your own portfolio — a credit or star is appreciated!
